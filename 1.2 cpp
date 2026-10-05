@@ -1,0 +1,59 @@
+#include <iostream>
+using namespace std;
+
+class Rectangle {
+    private:
+        float length;
+        float breadth;
+
+    public:
+        void setDimensions(float l, float b) {
+            length = l;
+            breadth = b;
+        }
+
+        float calculateArea();
+        float calculatePerimeter();
+        bool isSquare(); // Added function declaration
+        void display();
+};
+
+float Rectangle::calculateArea() {
+    return length * breadth;
+}
+
+float Rectangle::calculatePerimeter() {
+    return 2 * (length + breadth);
+}
+
+// Added function implementation to check if it's a square
+bool Rectangle::isSquare() {
+    return length == breadth;
+}
+
+void Rectangle::display() {
+    cout << "Length: " << length << endl;
+    cout << "Breadth: " << breadth << endl;
+    cout << "Area: " << calculateArea() << endl;
+    cout << "Perimeter: " << calculatePerimeter() << endl;
+
+    // Check and print if it is a square
+    if (isSquare()) {
+        cout << "It is a Square: Yes" << endl;
+    } else {
+        cout << "It is a Square: No" << endl;
+    }
+}
+
+int main() {
+    Rectangle rect;
+    float l, b;
+
+    cout << "Enter length and breadth: ";
+    cin >> l >> b;
+
+    rect.setDimensions(l, b);
+    rect.display();
+
+    return 0;
+}
